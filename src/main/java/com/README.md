@@ -15,51 +15,51 @@ Mantenha as responsabilidades desta camada separadas das demais e consulte os ar
 
 ## Árvore estrutural comentada
 
-O ponto inicial é `src/main/java/com/`; cada comentário apresenta o caminho completo relativo à raiz do repositório.
+O ponto inicial é `src/main/java/com/`.
 
 ```text
 src/main/java/com/  # Raiz dos pacotes Java qualificados pelo domínio com.
-├── salgaderia/  # src/main/java/com/salgaderia/ — Pacote da aplicação Salgaderia.
-│   ├── app/  # src/main/java/com/salgaderia/app/ — Componentes da aplicação e suas camadas.
-│   │   ├── controller/  # src/main/java/com/salgaderia/app/controller/ — Controllers das telas e testes de interface, conforme a localização.
-│   │   │   ├── LoginController.java  # src/main/java/com/salgaderia/app/controller/LoginController.java — Tela de login e cadastro público.
-│   │   │   └── SelecaoModulosController.java  # src/main/java/com/salgaderia/app/controller/SelecaoModulosController.java — Seleção de módulos administrativos.
-│   │   ├── dao/  # src/main/java/com/salgaderia/app/dao/ — Contratos de acesso a dados ou testes JDBC.
-│   │   │   ├── impl/  # src/main/java/com/salgaderia/app/dao/impl/ — Implementações JDBC dos contratos DAO, com comandos parametrizados.
-│   │   │   │   ├── ContatoDAOImpl.java  # src/main/java/com/salgaderia/app/dao/impl/ContatoDAOImpl.java — Operações JDBC de contatos com filtros de clientes e fornecedores.
-│   │   │   │   └── UsuarioDAOImpl.java  # src/main/java/com/salgaderia/app/dao/impl/UsuarioDAOImpl.java — Persiste usuários, consulta credenciais e atualiza hashes de senha.
-│   │   │   ├── ContatoDAO.java  # src/main/java/com/salgaderia/app/dao/ContatoDAO.java — Contrato para cadastro, edição, exclusão e busca filtrada de contatos.
-│   │   │   ├── README.md  # src/main/java/com/salgaderia/app/dao/README.md — Guia de navegação e explicações desta pasta.
-│   │   │   └── UsuarioDAO.java  # src/main/java/com/salgaderia/app/dao/UsuarioDAO.java — Contrato para inserir usuários, consultar login e atualizar senhas.
-│   │   ├── exception/  # src/main/java/com/salgaderia/app/exception/ — Exceções personalizadas de domínio e persistência.
-│   │   │   ├── AutenticacaoInvalidaException.java  # src/main/java/com/salgaderia/app/exception/AutenticacaoInvalidaException.java — Falha de autenticação.
-│   │   │   └── PersistenciaException.java  # src/main/java/com/salgaderia/app/exception/PersistenciaException.java — Encapsula erro de persistência.
-│   │   ├── model/  # src/main/java/com/salgaderia/app/model/ — Entidades de domínio ou testes dessas entidades.
-│   │   │   ├── enums/  # src/main/java/com/salgaderia/app/model/enums/ — Enumerações com comportamento e respectivos testes.
-│   │   │   │   ├── CategoriaInsumo.java  # src/main/java/com/salgaderia/app/model/enums/CategoriaInsumo.java — Categorias de insumos de fornecedores.
-│   │   │   │   └── PerfilUsuario.java  # src/main/java/com/salgaderia/app/model/enums/PerfilUsuario.java — Perfis de acesso do usuário.
-│   │   │   ├── Cliente.java  # src/main/java/com/salgaderia/app/model/Cliente.java — Contato especializado em cliente.
-│   │   │   ├── Contato.java  # src/main/java/com/salgaderia/app/model/Contato.java — Abstração comum de contatos.
-│   │   │   ├── Fornecedor.java  # src/main/java/com/salgaderia/app/model/Fornecedor.java — Contato especializado em fornecedor.
-│   │   │   ├── README.md  # src/main/java/com/salgaderia/app/model/README.md — Guia de navegação e explicações desta pasta.
-│   │   │   ├── Usuario.java  # src/main/java/com/salgaderia/app/model/Usuario.java — Abstração de usuário e permissões.
-│   │   │   ├── UsuarioAdmin.java  # src/main/java/com/salgaderia/app/model/UsuarioAdmin.java — Usuário administrativo.
-│   │   │   ├── UsuarioCliente.java  # src/main/java/com/salgaderia/app/model/UsuarioCliente.java — Usuário vinculado a um cliente.
-│   │   │   └── Validacao.java  # src/main/java/com/salgaderia/app/model/Validacao.java — Validações compartilhadas das entidades.
-│   │   ├── service/  # src/main/java/com/salgaderia/app/service/ — Contratos, regras de negócio e testes de serviços.
-│   │   │   ├── impl/  # src/main/java/com/salgaderia/app/service/impl/ — Implementações de regras e orquestração dos serviços.
-│   │   │   │   └── AutenticacaoServiceImpl.java  # src/main/java/com/salgaderia/app/service/impl/AutenticacaoServiceImpl.java — Orquestra login, verificação de senha e cadastro de cliente e usuário.
-│   │   │   └── AutenticacaoService.java  # src/main/java/com/salgaderia/app/service/AutenticacaoService.java — Contrato para autenticação única e cadastro público de clientes.
-│   │   ├── util/  # src/main/java/com/salgaderia/app/util/ — Conexão, autenticação auxiliar e navegação.
-│   │   │   ├── ConnectionFactory.java  # src/main/java/com/salgaderia/app/util/ConnectionFactory.java — Pool HikariCP e transações JDBC.
-│   │   │   ├── Navegacao.java  # src/main/java/com/salgaderia/app/util/Navegacao.java — Navegação entre telas FXML.
-│   │   │   ├── README.md  # src/main/java/com/salgaderia/app/util/README.md — Guia de navegação e explicações desta pasta.
-│   │   │   ├── Senhas.java  # src/main/java/com/salgaderia/app/util/Senhas.java — Geração e verificação de hashes de senha.
-│   │   │   └── TelaAutenticada.java  # src/main/java/com/salgaderia/app/util/TelaAutenticada.java — Contrato para telas com usuário autenticado.
-│   │   ├── Main.java  # src/main/java/com/salgaderia/app/Main.java — Inicialização da aplicação JavaFX.
-│   │   └── README.md  # src/main/java/com/salgaderia/app/README.md — Guia de navegação e explicações desta pasta.
-│   └── README.md  # src/main/java/com/salgaderia/README.md — Guia de navegação e explicações desta pasta.
-└── README.md  # src/main/java/com/README.md — Guia de navegação e explicações desta pasta.
+├── salgaderia/  # Pacote da aplicação Salgaderia.
+│   ├── app/  # Componentes da aplicação e suas camadas.
+│   │   ├── controller/  # Controllers das telas e testes de interface, conforme a localização.
+│   │   │   ├── LoginController.java  # Tela de login e cadastro público.
+│   │   │   └── SelecaoModulosController.java  # Seleção de módulos administrativos.
+│   │   ├── dao/  # Contratos de acesso a dados ou testes JDBC.
+│   │   │   ├── impl/  # Implementações JDBC dos contratos DAO, com comandos parametrizados.
+│   │   │   │   ├── ContatoDAOImpl.java  # Operações JDBC de contatos com filtros de clientes e fornecedores.
+│   │   │   │   └── UsuarioDAOImpl.java  # Persiste usuários, consulta credenciais e atualiza hashes de senha.
+│   │   │   ├── ContatoDAO.java  # Contrato para cadastro, edição, exclusão e busca filtrada de contatos.
+│   │   │   ├── README.md  # Guia de navegação e explicações desta pasta.
+│   │   │   └── UsuarioDAO.java  # Contrato para inserir usuários, consultar login e atualizar senhas.
+│   │   ├── exception/  # Exceções personalizadas de domínio e persistência.
+│   │   │   ├── AutenticacaoInvalidaException.java  # Falha de autenticação.
+│   │   │   └── PersistenciaException.java  # Encapsula erro de persistência.
+│   │   ├── model/  # Entidades de domínio ou testes dessas entidades.
+│   │   │   ├── enums/  # Enumerações com comportamento e respectivos testes.
+│   │   │   │   ├── CategoriaInsumo.java  # Categorias de insumos de fornecedores.
+│   │   │   │   └── PerfilUsuario.java  # Perfis de acesso do usuário.
+│   │   │   ├── Cliente.java  # Contato especializado em cliente.
+│   │   │   ├── Contato.java  # Abstração comum de contatos.
+│   │   │   ├── Fornecedor.java  # Contato especializado em fornecedor.
+│   │   │   ├── README.md  # Guia de navegação e explicações desta pasta.
+│   │   │   ├── Usuario.java  # Abstração de usuário e permissões.
+│   │   │   ├── UsuarioAdmin.java  # Usuário administrativo.
+│   │   │   ├── UsuarioCliente.java  # Usuário vinculado a um cliente.
+│   │   │   └── Validacao.java  # Validações compartilhadas das entidades.
+│   │   ├── service/  # Contratos, regras de negócio e testes de serviços.
+│   │   │   ├── impl/  # Implementações de regras e orquestração dos serviços.
+│   │   │   │   └── AutenticacaoServiceImpl.java  # Orquestra login, verificação de senha e cadastro de cliente e usuário.
+│   │   │   └── AutenticacaoService.java  # Contrato para autenticação única e cadastro público de clientes.
+│   │   ├── util/  # Conexão, autenticação auxiliar e navegação.
+│   │   │   ├── ConnectionFactory.java  # Pool HikariCP e transações JDBC.
+│   │   │   ├── Navegacao.java  # Navegação entre telas FXML.
+│   │   │   ├── README.md  # Guia de navegação e explicações desta pasta.
+│   │   │   ├── Senhas.java  # Geração e verificação de hashes de senha.
+│   │   │   └── TelaAutenticada.java  # Contrato para telas com usuário autenticado.
+│   │   ├── Main.java  # Inicialização da aplicação JavaFX.
+│   │   └── README.md  # Guia de navegação e explicações desta pasta.
+│   └── README.md  # Guia de navegação e explicações desta pasta.
+└── README.md  # Guia de navegação e explicações desta pasta.
 ```
 
 [🏠 Voltar ao README principal](../../../../README.md)

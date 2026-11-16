@@ -17,17 +17,17 @@ O arquivo database.local.properties é local e ignorado pelo Git; verifique se a
 
 ## Árvore estrutural comentada
 
-O ponto inicial é `src/main/resources/`; cada comentário apresenta o caminho completo relativo à raiz do repositório.
+O ponto inicial é `src/main/resources/`.
 
 ```text
 src/main/resources/  # Agrupa telas FXML, estilos e configuração padrão consumidos pelo JavaFX e pela infraestrutura.
-├── css/  # src/main/resources/css/ — Folhas de estilo das telas JavaFX.
-│   └── global.css  # src/main/resources/css/global.css — Estilos compartilhados da aplicação.
-├── fxml/  # src/main/resources/fxml/ — Descrições de interface JavaFX.
-│   ├── login.fxml  # src/main/resources/fxml/login.fxml — Estrutura visual de login e cadastro.
-│   └── selecao-modulos.fxml  # src/main/resources/fxml/selecao-modulos.fxml — Estrutura visual da seleção de módulos.
-├── database.properties  # src/main/resources/database.properties — Template de configuração JDBC; não contém credenciais locais.
-└── README.md  # src/main/resources/README.md — Guia de navegação e explicações desta pasta.
+├── css/  # Folhas de estilo das telas JavaFX.
+│   └── global.css  # Estilos compartilhados da aplicação.
+├── fxml/  # Descrições de interface JavaFX.
+│   ├── login.fxml  # Estrutura visual de login e cadastro.
+│   └── selecao-modulos.fxml  # Estrutura visual da seleção de módulos.
+├── database.properties  # Template de configuração JDBC; não contém credenciais locais.
+└── README.md  # Guia de navegação e explicações desta pasta.
 ```
 
 [🏠 Voltar ao README principal](../../../README.md)
